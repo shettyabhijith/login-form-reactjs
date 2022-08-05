@@ -30,7 +30,7 @@ const Loginsignup = () => {
           <LinkContainer to="/login">
             <Button className='login-btn text-center' >Login</Button>
           </LinkContainer>
-            
+          
           <LinkContainer to="/signup">
             <Button className='signup-btn btn-danger' >SIGN UP</Button>
           </LinkContainer>
