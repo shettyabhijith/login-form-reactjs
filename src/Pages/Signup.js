@@ -4,6 +4,7 @@ import countries from './JsonFiles/countries.json'
 import States from './JsonFiles/state.json'
 import cities from './JsonFiles/cities.json'
 import CountryCode from './JsonFiles/countryCode.json'
+// import {useNavigate} from "react-router-dom"
 // import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 
@@ -16,6 +17,7 @@ const Signup = (props) => {
     const errorMsg = "Password Did not Match"
     const [emailAddress, setEmailAddress] = useState('')
     const [passwordMatch, setPasswordMatch] = useState(false)
+    // const navigate = useNavigate();
     
 
     const CountrySelected =(e)=> {
@@ -51,10 +53,12 @@ const Signup = (props) => {
     const submitSignup = (e)=>{
         e.preventDefault();
         props.getData({emailAddress, cPassword});
+        // event.preventDefault();
+        // await submitForm(e.target);
+        // navigate("./Login", { replace: true });
+        window.location.href="../login";
         // <Redirect
     }
-
-
 
   return (
     <div>

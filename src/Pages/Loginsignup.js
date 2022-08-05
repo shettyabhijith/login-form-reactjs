@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Row, Col , Button  } from 'react-bootstrap'
 import Login from './Login'
 import Signup from './Signup'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {LinkContainer} from 'react-router-bootstrap'
+
 
 
 
@@ -16,15 +19,28 @@ const Loginsignup = () => {
   }
   return (
     <div>
+      <BrowserRouter>
+      
       <Row>
         <Col md={6}>
 
         </Col>
         <Col md={6}>
           <div className='login-button-sec'>
-            <Button className='login-btn text-center' onClick={() => setValidUser(true)}>Login</Button>
-            <Button className='signup-btn btn-danger' onClick={() => setValidUser(false)}>SIGN UP</Button>
-            {validUser? 
+          <LinkContainer to="/login">
+            <Button className='login-btn text-center' >Login</Button>
+          </LinkContainer>
+            
+          <LinkContainer to="/signup">
+            <Button className='signup-btn btn-danger' >SIGN UP</Button>
+          </LinkContainer>
+          <Routes>
+          <Route path='*' valid element={<Login />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup getData= {getSignupData} />} />
+        </Routes>
+            
+            {/* {validUser? 
             <div>
               <Login />
             </div>            
@@ -33,10 +49,14 @@ const Loginsignup = () => {
               <Signup getData= {getSignupData} />
             </div>
             
-          }
+          } */}
           </div>
         </Col>
       </Row>
+        
+      </BrowserRouter>
+
+      
     </div>
   )
 }
